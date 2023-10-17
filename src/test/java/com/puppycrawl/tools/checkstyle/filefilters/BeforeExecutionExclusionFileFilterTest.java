@@ -89,7 +89,7 @@ public class BeforeExecutionExclusionFileFilterTest extends AbstractModuleTestSu
         final String[] filteredViolations = CommonUtil.EMPTY_STRING_ARRAY;
 
         final String[] unfilteredViolations = {
-            getCheckMessage(FinalLocalVariableCheck.class, MSG_KEY, "i"),
+            "17:13: " + getCheckMessage(FinalLocalVariableCheck.class, MSG_KEY, "i"),
         };
 
         verifyFilterWithInlineConfigParser(
