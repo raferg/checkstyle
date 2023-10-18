@@ -84,6 +84,20 @@ public class BeforeExecutionExclusionFileFilterTest extends AbstractModuleTestSu
         );
     }
 
+    @Test
+    public void testFileExclusionFailTest() throws Exception {
+        final String[] filteredViolations = CommonUtil.EMPTY_STRING_ARRAY;
+
+        final String[] unfilteredViolations = {
+            "17:13: " + getCheckMessage(FinalLocalVariableCheck.class, MSG_KEY, "i"),
+        };
+
+        verifyFilterWithInlineConfigParser(
+                getPath("InputBeforeExecutionExclusionFileFilter.java"),
+                unfilteredViolations, filteredViolations
+        );
+    }
+
     private static BeforeExecutionExclusionFileFilter
             createExclusionBeforeExecutionFileFilter(String fileName) {
         final BeforeExecutionExclusionFileFilter exclusionBeforeExecutionFileFilter =
